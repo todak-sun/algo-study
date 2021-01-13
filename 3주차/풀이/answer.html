@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      const input = [
+        "Enter uid1234 Muzi",
+        "Enter uid4567 Prodo",
+        "Leave uid1234",
+        "Enter uid1234 Prodo",
+        "Change uid4567 Ryan",
+      ];
+
+      function solution(record) {
+        // 01. parsing
+        let parsedMessageList = parseFor(record);
+
+        // 02. id, nickname 최종적으로 업데이트해서 리턴
+        let idAndNicknameList = makeNicknameData(parsedMessageList);
+
+        var answer = convertToLog(parsedMessageList, idAndNicknameList);
+        console.log(answer);
+        return answer;
+      }
+
+      // 공백 기준으로 쪼개고, object{action, id, nickname} 형태로 변환
+      function parseFor(list) {
+        return list.map((message) => {
+          return {
+            action: message.split(" ")[0].toLowerCase(),
+            id: message.split(" ")[1],
+            nickname: message.split(" ")[2] ? message.split(" ")[2] : null,
+          };
+        });
+      }
+
+      // nicknameData: [{id:, nickname:}, {}, {}] 형태로 최종 출력
+      function makeNicknameData(parsedMessageList) {
+        return parsedMessageList.reduce((nicknameData, message) => {
+          switch (message.action) {
+            case "enter":
+              // push() -> 변경자 메소드
+              nicknameData.push({
+                id: message.id,
+                nickname: message.nickname,
+              });
+              break;
+            case "leave":
+              // splice() -> 변경자 메소드
+              nicknameData.splice(
+                nicknameData.findIndex((item) => item.id === message.id),
+                1
+              );
+              break;
+            case "change":
+              nicknameData = nicknameData.map((item) => {
+                if (item.id === message.id) {
+                  item.nickname = message.nickname;
+                }
+                return item;
+              });
+              break;
+            default:
+          }
+          return nicknameData;
+        }, []);
+      }
+
+      // 출력 로그로 변환
+      function convertToLog(parsedMessageList, idAndNicknameList) {
+        return parsedMessageList.reduce((history, event) => {
+          switch (event.action) {
+            case "enter":
+              // push() -> 변경자 메소드
+              history.push(
+                `${
+                  idAndNicknameList.find((item) => item.id === event.id)
+                    .nickname
+                }님이 들어왔습니다.`
+              );
+              break;
+            case "leave":
+              // splice() -> 변경자 메소드
+              history.push(
+                `${
+                  idAndNicknameList.find((item) => item.id === event.id)
+                    .nickname
+                }님이 나갔습니다.`
+              );
+              break;
+            default:
+          }
+          return history;
+        }, []);
+      }
+
+      // test
+      solution(input);
+    </script>
+  </body>
+</html>

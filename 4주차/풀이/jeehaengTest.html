@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      function solution(bridge_length, weight, truck_weights) {
+        let cost = 0;
+
+        let truckArray = truck_weights.reverse();
+        let passedTruckCount = 0;
+
+        // 와일문 끝내는 기준을 건너기전 차들의 array가 아니라, 다 건넌 차들의 갯수가 기존 건너기전 갯수와 같도록 바꿔야한다.
+        while (passedTruckCount < truck_weights.length) {
+          // let newTruckWeight = truckArray[truckArray.length - 1];
+          let bridge = [];
+
+          while (
+            bridge.reduce((sum, cur) => sum + cur.weight, 0) +
+              truckArray[truckArray.length - 1] <=
+              weight &&
+            bridge.length < bridge_length
+          ) {
+            bridge.push({
+              weight: truckArray[truckArray.length - 1],
+              passCount: bridge_length,
+            });
+            truckArray.pop();
+          }
+
+          for (let i = 0; i < bridge.length; i++) {
+            let truck = bridge[i];
+            if (truck.passCount - 1 === 0) {
+              bridge.splice(0, 1);
+              passedTruckCount++;
+            } else {
+              truck.passCount = truck.passCount--;
+              bridge[i] = truck;
+            }
+          }
+
+          cost++;
+        }
+
+        return cost;
+      }
+
+      function test() {
+        let bridge = [];
+        let truckArray = [7, 4, 5, 6];
+        let weight = 10;
+        let bridge_length = 2;
+        console.log("start!");
+
+        solution(bridge_length, weight, truckArray);
+      }
+
+      test();
+    </script>
+  </body>
+</html>

@@ -108,7 +108,13 @@ public class IceCream {
 
 
 
+
+
+
+
 ---
+# 기타 정리한 코드
+
 ``` java
 import java.util.LinkedList;
 import java.util.NoSuchElementException;

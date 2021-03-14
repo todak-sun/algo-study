@@ -1,9 +1,4 @@
-# 알고리즘(코딩테스트) 공부 스터디
-
-## Description
-
-- 알고리즘(코딩테스트) 스터디는 "꾸준히, 일주일에 적어도 한 문제"를 목표로 합니다.
-- 어떤 언어로 문제를 해결하느냐는 중요하지 않습니다. (자신있는 언어로 풀이해주시면 됩니다.)
+# 알고리즘(코딩테스트) 공부 스터디 1기
 
 ## HOW TO?
   1. 코딩테스트 문제를 제공하는 웹 사이트 또는 책에서 1 ~ 2문제 선택합니다.
@@ -25,6 +20,3 @@
 - [todak-sun](https://github.com/todak-sun)
 - [uhjee](https://github.com/uhjee)
 - [jjajja91](https://github.com/jjajja91)
-- [kin88887](https://github.com/kin88887)
-- [Nnagman](https://github.com/Nnagman)
-- mezero

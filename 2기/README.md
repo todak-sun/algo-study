@@ -43,4 +43,5 @@
 - [todak-sun](https://github.com/todak-sun)
 - [kin88887](https://github.com/kin88887)
 - [Nnagman](https://github.com/Nnagman)
-- mezero
+- [mezeeeeeero](https://github.com/mezeeeeeero)
+- [kim0lil](https://github.com/kim0lil)

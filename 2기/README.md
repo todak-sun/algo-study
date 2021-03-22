@@ -8,6 +8,9 @@
     git clone https://github.com/todak-sun/algo-study.git
   ```
 
+2. 깃 관련 추가 가이드입니다.\
+   [추가 가이드](./HOWTOUSEGITFLOW.md)
+
 ## RULE
 
 1. 한 주의 시작은 `월요일`로, 마지막일은 `일요일`로 합니다.

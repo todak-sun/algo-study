@@ -46,6 +46,8 @@
 하지만 `ArrayList`는 쉽게 요소를 삭제 할 수 있기 때문에 `ArrayList`로 변경하여 풀이했다.  <br/> 
 하지만, 중복 된 사항이 있을 경우 강제로 `for문`을 종료시켜야 하기 때문에 뭔가 마음에 들지 않는 풀이었다.  <br/> 
 또한 문제 타이틀에 해시가 들어갔는데, *해시를 사용하지 않은 느낌*이었다.   <br/>
+
+~~게다가 이 풀이의 경우 효율성테스트를 통과하지못했다. 결과만 잘 나오는 ... 더러운 코드...~~
 ```java
 public class Solution {
     public String solution(String[] participant, String[] completion) {
